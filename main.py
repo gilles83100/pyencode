@@ -139,6 +139,9 @@ FFPROBE_PATH = 'ffprobe'
 if os.name in ("nt", "dos", "os2", "ce"):
     FFMPEG_PATH = os.path.join(basepath, 'plugin\\ffmpeg.exe')
     FFPROBE_PATH = os.path.join(basepath, 'plugin\\ffprobe.exe')
+    codecsVideo = ['libx264', 'h264_amf', 'h264_nvenc', 'h264_qsv', 'nvenc', 'nvenc_h264']
+    codecVideo = codecsVideo[0]
+
 elif sys.platform == 'darwin':
     FFMPEG_PATH = os.path.join(basepath, 'plugin/ffmpeg')
     FFPROBE_PATH = os.path.join(basepath, 'plugin/ffprobe')
