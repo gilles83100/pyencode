@@ -27,7 +27,6 @@ level = [6]
 debitVideo = '1600k'
 
 codecsVideo = ['libx264']
-codecVideo = codecsVideo[0]
 
 debitAudio = '160k'
 codecAudio = 'aac'
@@ -42,7 +41,7 @@ def time2secs(duration):
     total = 0
     total += int(heures) * 3600
     total += int(minutes) * 60
-    total +- float(secondes)
+    total += float(secondes)
     return total
 
 def getCrop(filename,position = 5):
@@ -83,8 +82,9 @@ def getDuration(filename):
             break
     return 0.0
 
-def encoding(infile, outfile):
+def encoding(infile, outfile, codecVideo=codecsVideo[0], preset = presets[5], vprofile=vprofiles[1], level=levels[6], simulate = []):
 
+    print('codec = {} vprofile = {} level = {} simulate = {}'.format(codecVideo, vprofile, level, simulate))
     cmd = [FFMPEG_PATH]
 
     if simulate:
@@ -106,6 +106,8 @@ def encoding(infile, outfile):
     cmd += [outfile]
 
     cli(cmd, infile)
+
+    return cmd
 
 def cli(cmd, filename=''):
     widget = ['Encodage',progressbar.Percentage(), ' ', progressbar.Bar(), ' ', progressbar.ETA()] #, ' ', filename]
@@ -186,11 +188,14 @@ if __name__ == "__main__":
             print('Usage: pyencode.py -i source -o destination')
             sys.exit()
 
+    infile = '/Users/gilles/Movies/08-20 20-55-01_TFX (fra) La colère des Titans.ts'
+    outfile = '/Users/gilles/Movies/08-20 20-55-01_TFX (fra) La colère des Titans.mp4'
+
     if os.path.exists(infile):
         if outfile=='':
             outfile = os.path.splitext(infile)[0]+'_{}_{}.{}'.format(codecVideo, codecAudio, container)
 
-        encoding(infile, outfile)
+        encoding(infile, outfile, codecVideo = codecVideo)
     else:
         if infile != '':
             print("Le fichier '{}' n'existe pas".format(infile))
