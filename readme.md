@@ -6,7 +6,9 @@ Packages :
 
     progressbar2
 
-Commandes
+[ffmpeg.exe](https://www.ffmpeg.org) à installer à la racine du projet
+
+Commandes :
 
 * Conversion simple avec codecs par défaut
 
