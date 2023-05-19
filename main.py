@@ -188,8 +188,8 @@ if __name__ == "__main__":
             print('Usage: pyencode.py -i source -o destination')
             sys.exit()
 
-    infile = '/Users/gilles/Movies/08-20 20-55-01_TFX (fra) La colère des Titans.ts'
-    outfile = '/Users/gilles/Movies/08-20 20-55-01_TFX (fra) La colère des Titans.mp4'
+    infile = '/Users/gilles/Movies/video.ts'
+    outfile = '/Users/gilles/Movies/video.mp4'
 
     if os.path.exists(infile):
         if outfile=='':
