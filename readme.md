@@ -1,6 +1,6 @@
 # Conversion de vidéo
 
-Pour système sous Windows, Mac OS, Raspbian (raspberry PI).
+Pour système sous Windows, MacOS, Raspbian (raspberry PI).
 
 Packages :
 
